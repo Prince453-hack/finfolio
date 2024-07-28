@@ -8,6 +8,13 @@
       "when": 1722155903978,
       "tag": "0000_busy_jane_foster",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1722161591081,
+      "tag": "0001_simple_harpoon",
+      "breakpoints": true
     }
   ]
 }
