@@ -19,5 +19,5 @@ const app = new Hono().get("/", clerkMiddleware(), async (c) => {
     .where(eq(accounts.userId, auth.userId));
   return c.json({ data });
 });
-
+//Raw
 export default app;
