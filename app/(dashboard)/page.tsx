@@ -1,5 +1,10 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
+import { useNewAccount } from "@/features/accounts/hooks/use-new-account";
 
 export default function Home() {
-  return <Button>Authenticated route</Button>;
+  const { onOpen } = useNewAccount();
+
+  return <Button onClick={onOpen}>Authenticated route</Button>;
 }
