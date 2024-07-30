@@ -6,5 +6,9 @@ import { useNewAccount } from "@/features/accounts/hooks/use-new-account";
 export default function Home() {
   const { onOpen } = useNewAccount();
 
-  return <Button onClick={onOpen}>Authenticated route</Button>;
+  return (
+    <div className="">
+      <Button onClick={onOpen}>Authenticated route</Button>
+    </div>
+  );
 }
