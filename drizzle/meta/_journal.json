@@ -15,6 +15,13 @@
       "when": 1722161591081,
       "tag": "0001_simple_harpoon",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1722447634732,
+      "tag": "0002_chief_reavers",
+      "breakpoints": true
     }
   ]
 }
