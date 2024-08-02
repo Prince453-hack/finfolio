@@ -13,7 +13,7 @@ import { useDeleteAccount } from "../api/use-delete-transaction";
 import { useEditAccount } from "../api/use-edit-transactions";
 import { useGetAccount } from "../api/use-get-transaction";
 import { useOpenAccount } from "../hooks/use-open-account";
-import { AccountForm } from "./account-form";
+import { AccountForm } from "./transaction-form";
 
 const formSchema = insertAccountSchema.pick({ name: true });
 
