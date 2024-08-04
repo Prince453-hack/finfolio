@@ -5,29 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1722155903978,
-      "tag": "0000_busy_jane_foster",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1722161591081,
-      "tag": "0001_simple_harpoon",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1722447634732,
-      "tag": "0002_chief_reavers",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "7",
-      "when": 1722503232688,
-      "tag": "0003_nappy_speed",
+      "when": 1722686901763,
+      "tag": "0000_noisy_vampiro",
       "breakpoints": true
     }
   ]

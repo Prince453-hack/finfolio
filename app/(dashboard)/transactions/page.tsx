@@ -7,19 +7,20 @@ import { Loader2, Plus } from "lucide-react";
 import React from "react";
 import { DataTable } from "@/components/data-table";
 import { columns } from "./colums";
-import { useGetAccounts } from "@/features/accounts/api/use-get-accounts";
+import { useGetTransactions } from "@/features/transactions/api/use-get-transactions";
 import { Skeleton } from "@/components/ui/skeleton";
-import { useBulkDeleteAccounts } from "@/features/accounts/api/use-bulk-delete";
+import { useBulkDeleteTransactions } from "@/features/transactions/api/use-bulk-delete-transactions";
 
 const page = () => {
   const newTransactions = useNewTransaction();
-  const accountsQuery = useGetAccounts();
-  const accounts = accountsQuery.data || [];
-  const deleteAccounts = useBulkDeleteAccounts();
+  const transactionsQuery = useGetTransactions();
+  const transactions = transactionsQuery.data || [];
+  const deleteTransactions = useBulkDeleteTransactions();
 
-  const isDisabled = accountsQuery.isLoading || deleteAccounts.isPending;
+  const isDisabled =
+    transactionsQuery.isLoading || deleteTransactions.isPending;
 
-  if (accountsQuery.isLoading) {
+  if (transactionsQuery.isLoading) {
     return (
       <div className="max-w-screen-2xl mx-auto w-full pb-10 -mt-24">
         <Card className="border-none drop-shadow-sm">
@@ -52,10 +53,10 @@ const page = () => {
           <DataTable
             filterKey="name"
             columns={columns}
-            data={accounts}
+            data={transactions}
             onDelete={(rows) => {
               const ids = rows.map((row) => row.original.id);
-              deleteAccounts.mutate({ ids });
+              deleteTransactions.mutate({ ids });
             }}
             disabled={isDisabled}
           />

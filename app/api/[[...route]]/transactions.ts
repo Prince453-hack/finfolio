@@ -25,12 +25,12 @@ const app = new Hono()
       })
     ),
     clerkMiddleware(),
-    async (c) => {
-      const auth = getAuth(c);
-      const { from, to, accountId } = c.req.valid("query");
+    async (ctx) => {
+      const auth = getAuth(ctx);
+      const { from, to, accountId } = ctx.req.valid("query");
 
       if (!auth?.userId) {
-        return c.json({ error: "Unauthorized" }, 401);
+        return ctx.json({ error: "Unauthorized." }, 401);
       }
 
       const defaultTo = new Date();
@@ -39,7 +39,6 @@ const app = new Hono()
       const startDate = from
         ? parse(from, "yyyy-MM-dd", new Date())
         : defaultFrom;
-
       const endDate = to ? parse(to, "yyyy-MM-dd", new Date()) : defaultTo;
 
       const data = await db
@@ -66,7 +65,8 @@ const app = new Hono()
           )
         )
         .orderBy(desc(transactions.date));
-      return c.json({ data });
+
+      return ctx.json({ data });
     }
   )
   .get(

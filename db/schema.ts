@@ -5,12 +5,11 @@ import { z } from "zod";
 
 export const accounts = pgTable("accounts", {
   id: text("id").primaryKey(),
-  plaidId: text("plaid_id"),
   name: text("name").notNull(),
   userId: text("user_id").notNull(),
 });
 
-export const accountsRelation = relations(accounts, ({ many }) => ({
+export const accountsRelations = relations(accounts, ({ many }) => ({
   transactions: many(transactions),
 }));
 
@@ -18,12 +17,11 @@ export const insertAccountSchema = createInsertSchema(accounts);
 
 export const categories = pgTable("categories", {
   id: text("id").primaryKey(),
-  plaidId: text("plaid_id"),
   name: text("name").notNull(),
   userId: text("user_id").notNull(),
 });
 
-export const categoriesRelation = relations(categories, ({ many }) => ({
+export const categoriesRelations = relations(categories, ({ many }) => ({
   transactions: many(transactions),
 }));
 
@@ -40,7 +38,6 @@ export const transactions = pgTable("transactions", {
       onDelete: "cascade",
     })
     .notNull(),
-
   categoryId: text("category_id").references(() => categories.id, {
     onDelete: "set null",
   }),
