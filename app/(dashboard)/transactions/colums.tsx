@@ -7,6 +7,7 @@ import { ColumnDef } from "@tanstack/react-table";
 import { InferResponseType } from "hono";
 import { ArrowUpDown } from "lucide-react";
 import { Actions } from "./actions";
+import { format } from "date-fns";
 
 export type ResponseType = InferResponseType<
   typeof client.api.transactions.$get,
@@ -45,6 +46,42 @@ export const columns: ColumnDef<ResponseType>[] = [
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
           Date
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
+    cell: ({ row }) => {
+      const date = row.getValue("date") as Date;
+
+      return <span>{format(date, "dd MMMM, yyyy")}</span>;
+    },
+  },
+  {
+    accessorKey: "category",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Category
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
+    cell: ({ row }) => {
+      return <span>{row.original.category}</span>;
+    },
+  },
+  {
+    accessorKey: "payee",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Payee
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );
