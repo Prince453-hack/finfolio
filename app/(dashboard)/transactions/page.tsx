@@ -28,7 +28,7 @@ const INITIAL_IMPORT_RESULTS = {
   meta: {},
 };
 
-const page = () => {
+const Page = () => {
   const [AccountDialog, confirm] = useSelectAccount();
   const [variant, setVariant] = useState<VARIANTS>(VARIANTS.LIST);
   const [importResults, setImportResults] = useState(INITIAL_IMPORT_RESULTS);
