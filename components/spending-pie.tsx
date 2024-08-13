@@ -15,6 +15,7 @@ import {
 } from "./ui/select";
 import { PieVariant } from "./pie-variant";
 import { RadarVariant } from "./radar-variants";
+import { RadialVariant } from "./radio-variant";
 
 type Props = {
   data?: {
@@ -75,7 +76,7 @@ export const SpendingPie = ({ data }: Props) => {
           <>
             {chartType === "pie" && <PieVariant data={data} />}
             {chartType === "radar" && <RadarVariant data={data} />}
-            {chartType === "radio" && <BarVariant data={data} />}
+            {chartType === "radio" && <RadialVariant data={data} />}
           </>
         )}
       </CardContent>
