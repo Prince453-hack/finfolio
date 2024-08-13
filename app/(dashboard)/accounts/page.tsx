@@ -11,7 +11,7 @@ import { useGetAccounts } from "@/features/accounts/api/use-get-accounts";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useBulkDeleteAccounts } from "@/features/accounts/api/use-bulk-delete";
 
-const Page = () => {
+const AccountPage = () => {
   const newAccount = useNewAccount();
   const accountsQuery = useGetAccounts();
   const accounts = accountsQuery.data || [];
@@ -63,4 +63,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default AccountPage;

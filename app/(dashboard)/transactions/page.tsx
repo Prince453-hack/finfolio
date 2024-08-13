@@ -28,7 +28,7 @@ const INITIAL_IMPORT_RESULTS = {
   meta: {},
 };
 
-const Page = () => {
+const TransactionPage = () => {
   const [AccountDialog, confirm] = useSelectAccount();
   const [variant, setVariant] = useState<VARIANTS>(VARIANTS.LIST);
   const [importResults, setImportResults] = useState(INITIAL_IMPORT_RESULTS);
@@ -134,4 +134,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default TransactionPage;
