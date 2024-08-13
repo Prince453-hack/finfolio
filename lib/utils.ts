@@ -91,3 +91,24 @@ export function formatPercentage(
 
   return result;
 }
+
+export function constructMetadata({
+  title = "FinFolio",
+  description = "Manage your finances with FinFolio.",
+  icons = "/fav/favicon.ico",
+}: {
+  title?: string;
+  description?: string;
+  icons?: string;
+  noIndex?: boolean;
+} = {}) {
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+    },
+    icons,
+  };
+}
